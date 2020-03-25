@@ -8,9 +8,10 @@ import matplotlib.pyplot as plt
 
 
 def main():
-	st.markdown("# Reichweitenkurven-Vorraussagen-Tool")
+	st.markdown("# OMG Reichweitenkurven-Voraussagen-Tool")
 	st.markdown("## Schritt 1")
 	st.text("Bitte wählen Sie die Excel file mit den GRP / Reichweitendaten aus. Siehe Beispiel unten:")
+	st.markdown('<a href="https://github.com/plotti/omg_forecast_tv/raw/master/testkurve.xlsx" download="testkurve.xlsx">Beispiel Vorlage Excel-Datei herunterladen</a>',unsafe_allow_html=True)
 	st.image("example.png",width =300)
 	uploaded_file = st.file_uploader("Bitte wählen Sie die Excel file mit den GRP / Reichweitendaten aus.", type="xlsx")
 
@@ -30,13 +31,13 @@ def main():
 			st.write('Berechne Forecast mit Grps %s und Max Reach %s' % (grps,max_reach))
 			result = predict(df,existing_grps,grps,max_reach)
 			st.balloons()
-			st.markdown("## Schritt 3: Ergebniss")
+			st.markdown("## Schritt 3: Ergebnis")
 			plot_result(result)
 			st.dataframe(result)
 			result = result.to_csv(index=False)						
 			st.markdown("### Donwload ")
 			b64 = base64.b64encode(result.encode()).decode()  # some strings <-> bytes conversions necessary here
-			href = f'<a href="data:file/csv;base64,{b64}" download="export.csv">Excel Datei herunterladen</a>'
+			href = f'<a href="data:file/csv;base64,{b64}" download="export.csv">Resultate als CSV Datei herunterladen</a>'
 			st.markdown(href, unsafe_allow_html=True)
 		else:
 			st.write('')
