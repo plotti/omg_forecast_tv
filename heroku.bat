@@ -1,1 +1,0 @@
-start /b cmd /c "C:\Users\thomas.ebermann\Documents\heroku\heroku\bin\heroku.cmd" %* 
