@@ -72,7 +72,7 @@ def plot_result(result):
 	ax = result["RW_forecast"].plot()
 	ax.set_ylabel(ylabel="RW",fontsize=18)
 	ax.set_xlabel(xlabel="GRP",fontsize=18)
-	ax.set_title(label="Vorraussage Reichweite",fontsize=22)
+	ax.set_title(label="Voraussage Reichweite",fontsize=22)
 	ax.fill_between(result.index, result["Min"], result["Max"],facecolor='green', alpha=0.2, interpolate=True)
 	plt.tight_layout()
 	st.pyplot()
